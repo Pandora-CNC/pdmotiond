@@ -13,10 +13,10 @@ STRIP=arm-none-linux-gnueabi-strip
 CFLAGS=-I$(IDIR)
 LDFLAGS=-static
 
-_DEPS = appargs.h defs.h driver.h errors.h main.h types.h
+_DEPS = appargs.h defs.h mdriver.h errors.h main.h types.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = appargs.o driver.o main.o
+_OBJ = appargs.o mdriver.o main.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)

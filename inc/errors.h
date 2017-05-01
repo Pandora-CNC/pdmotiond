@@ -20,6 +20,9 @@ enum {
   ERR_ARGINV,     // Argument is invalid
   ERR_ARGRANGE,   // Argument range invalid
   ERR_SYNTAX,     // Invocation syntax invalid
+  ERR_DBLINIT,    // Double init
+  ERR_FOPEN,      // File open failed
+  ERR_IOCTL,      // IOCTL failed
 
   ERR_EXTERN      // Start of the function specific errors
 };

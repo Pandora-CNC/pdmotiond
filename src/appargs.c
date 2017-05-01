@@ -56,6 +56,13 @@ elvl_t appargs_parse(unsigned int argc, char* argv[], appargs_t* args)
           lasthandled = CLI_ARG_HANDLED;
         break;
 
+        case CLI_FLAG_DEBUG:
+          // Store the debug file path
+          args->debug_path = argstr;
+          // Mark the argument as handled
+          lasthandled = CLI_ARG_HANDLED;
+        break;
+
         // Deamonize allows optionally specifying the device path
         case CLI_FLAG_DEAMONIZE:
           // Since it is specified, it must exist
@@ -133,6 +140,9 @@ elvl_t appargs_parse(unsigned int argc, char* argv[], appargs_t* args)
     } else if(STREQ(argstr, "--version")) {
       SET_ARG((lastflag = CLI_FLAG_VERSION), args->flags);
       lasthandled = CLI_ARG_HANDLED;
+    } else if(STREQ(argstr, "--debug")) {
+      SET_ARG((lastflag = CLI_FLAG_DEBUG), args->flags);
+      lasthandled = CLI_ARG_REQUIRED;
     } else if(STREQ(argstr, "-d") || STREQ(argstr, "--deamonize")) {
       SET_ARG((lastflag = CLI_FLAG_DEAMONIZE), args->flags);
       lasthandled = CLI_ARG_OPTIONAL;

@@ -27,6 +27,7 @@ typedef struct {
   char* help_topic;           // Help topic to display
   char* file_path;            // Generic file path(s) (last argument(s))
   char* device_path;          // Path to the motion device
+  char* debug_path;           // Path to the debug file
   float x;                    // X-axis parameter
   float y;                    // Y-axis parameter
   float z;                    // Z-axis parameter
@@ -52,6 +53,7 @@ enum {
   CLI_ARGHANDLED,       // Placeholder for a handled argument
   CLI_FLAG_HELP,        // -h || --help
   CLI_FLAG_VERSION,     // --version
+  CLI_FLAG_DEBUG,       // --debug
   CLI_FLAG_DEAMONIZE,   // -d || --deamonize
   CLI_FLAG_KILL_DEAMON, // -k || --kill; only with -d
   CLI_FLAG_FILENAME,    // Last filename in the command line args
