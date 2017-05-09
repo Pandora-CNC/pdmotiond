@@ -22,7 +22,7 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-pdmotiond: $(OBJ)
+pdmd: $(OBJ)
 	$(CC) -o $@.sdbg $^ $(LDFLAGS)
 	$(STRIP) --strip-unneeded -o $@ $@.sdbg
 
